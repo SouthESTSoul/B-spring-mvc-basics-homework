@@ -14,11 +14,11 @@ import javax.validation.constraints.*;
 
 public class UserDto {
     @NotEmpty
-    @Pattern(regexp ="[0-9A-Za-z_]{3,10}")
+    @Pattern(regexp ="[0-9A-Za-z_]{3,10}",message = "The name should be consisted of numbers, letters and underscores")
     private String name;
     @NotEmpty
-    @Size(min =5 ,max =12 )
+    @Size(min =5 ,max =12 ,message="Password length must be between 5-12" )
     private String password;
-    @Email
+    @Email(message = "Not a legal email address")
     private String email;
 }
