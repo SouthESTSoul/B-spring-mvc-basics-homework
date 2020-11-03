@@ -5,6 +5,7 @@ import com.thoughtworks.capacity.gtb.mvc.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,12 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class UserController {
 
-    UserService userService ;
-
+    UserService userService;
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public void register(UserDto user){
-
+    public void register(@RequestBody  UserDto user) {
+        userService.register(user);
     }
 }
