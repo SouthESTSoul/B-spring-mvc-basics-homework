@@ -13,8 +13,9 @@ import javax.validation.constraints.*;
 @Builder
 
 public class UserDto {
+    int id;
     @NotEmpty
-    @Pattern(regexp ="[0-9A-Za-z_]{3,10}",message = "The name should be consisted of numbers, letters and underscores")
+    @Pattern(regexp ="[0-9A-Za-z_]{3,10}",message = "The name should be consisted of numbers, letters and underscores,and the length of name must be between 5-12")
     private String name;
     @NotEmpty
     @Size(min =5 ,max =12 ,message="Password length must be between 5-12" )
