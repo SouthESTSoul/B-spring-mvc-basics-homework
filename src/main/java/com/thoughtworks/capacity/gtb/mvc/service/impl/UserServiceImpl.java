@@ -14,16 +14,16 @@ public class UserServiceImpl implements UserService {
     public static ConcurrentHashMap<String,UserDto> userDB= new ConcurrentHashMap();
     @Override
     public void register(UserDto user) {
-       if(userDB.get(user.getName())!=null){
-           throw new RepeatNameException("The name already exists");
+       if(userDB.get(user.getUsername())!=null){
+           throw new RepeatNameException("The username already exists");
        }
        user.setId(userDB.size()+1);
-       userDB.put(user.getName(),user);
+       userDB.put(user.getUsername(),user);
     }
 
     @Override
-    public UserDto login(String name, String password) {
-        UserDto user = userDB.get(name);
+    public UserDto login(String username, String password) {
+        UserDto user = userDB.get(username);
         if(user==null){
             throw new UserNotExistException("User is not exist");
         }

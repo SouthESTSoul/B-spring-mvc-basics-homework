@@ -5,5 +5,5 @@ import com.thoughtworks.capacity.gtb.mvc.dto.UserDto;
 public interface UserService {
     void register(UserDto user);
 
-    UserDto login(String name, String password);
+    UserDto login(String username, String password);
 }

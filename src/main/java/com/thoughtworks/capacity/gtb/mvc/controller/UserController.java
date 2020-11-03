@@ -26,11 +26,11 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public ResponseEntity<UserDto> login(@RequestParam @Pattern(regexp ="[0-9A-Za-z_]{3,10}",message = "The name should be consisted of numbers, letters and underscores,and the length of name must be between 5-12")
-                                                     String name,
+    public ResponseEntity<UserDto> login(@RequestParam @Pattern(regexp ="[0-9A-Za-z_]{3,10}",message = "The username should be consisted of numbers, letters and underscores,and the length of name must be between 5-12")
+                                                     String username,
                                          @RequestParam @Size(min =5 ,max =12 ,message="Password length must be between 5-12" )
                                                  String password){
-        UserDto user = userService.login(name, password);
+        UserDto user = userService.login(username, password);
        return ResponseEntity.ok().body(user);
     }
 }
